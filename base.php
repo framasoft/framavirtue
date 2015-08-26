@@ -1,14 +1,15 @@
 <?php get_template_part('templates/head'); ?>
   <body <?php body_class(); ?>>
     <script type="text/javascript" src="https://n5.framasoft.org/nav/nav.js"></script>
-
     <div id="wrapper" class="container">
     <?php do_action('get_header');
         get_template_part('templates/header');
     ?>
       <div class="wrap contentclass" role="document">
 
-          <?php include kadence_template_path(); ?>
+      <?php do_action('kt_afterheader');
+
+          include kadence_template_path(); ?>
             
           <?php if (kadence_display_sidebar()) : ?>
             <aside class="<?php echo esc_attr(kadence_sidebar_class()); ?> kad-sidebar" role="complementary">
