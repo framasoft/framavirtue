@@ -38,7 +38,7 @@ if ( ! class_exists( 'Redux' ) ) {
         'dev_mode'             => false,
         'forced_dev_mode_off'  => true,
         'update_notice'        => false,
-        'customizer'           => false,
+        'customizer'           => true,
         'page_priority'        => 50,
         'page_permissions'     => 'manage_options',
         'menu_icon'            => '',
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Redux' ) ) {
         'default_show'         => false,
         'default_mark'         => '',
         'disable_tracking'     => true,
-        'customizer_only'      => true,
+        'customizer_only'      => false,
         'save_defaults'        => false,
         'intro_text'           => 'Upgrade to <a href="http://kadencethemes.com/product/virtue-premium-theme/" target="_blank" >Virtue Premium</a> for more great features. Over 50 more theme options, premium sliders and carousels, breadcrumbs, custom post types and much much more!',           
         'footer_credit'        => __('Thank you for using the Virtue Theme by <a href="http://kadencethemes.com/" target="_blank">Kadence Themes</a>.', 'virtue'),
@@ -192,7 +192,7 @@ if ( ! class_exists( 'Redux' ) ) {
             'font-size'=>true,
             'line-height'=>true,
             'text-align' => false,
-            'customizer' => false,
+            'customizer' => true,
             //'word-spacing'=>false, // Defaults to false
             //'all_styles' => true,
             'color'=>true,
@@ -227,7 +227,7 @@ if ( ! class_exists( 'Redux' ) ) {
             'font-style'=>true, // Includes font-style and weight. Can use font-style or font-weight to declare
             'subsets'=>true, // Only appears if google is true and subsets not set to false
             'font-size'=>true,
-            'customizer' => false,
+            'customizer' => true,
             'line-height'=>true,
             'text-align' => false,
             'color'=>true,
@@ -336,7 +336,7 @@ Redux::setSection( $opt_name, array(
         array(
             'id'=>'topbar_icons',
             'type' => 'switch',
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Use Topbar Icon Menu?', 'virtue'),
             'subtitle'=> __('Choose to show or hide topbar icon Menu', 'virtue'),
             "default"       => 0,
@@ -344,7 +344,7 @@ Redux::setSection( $opt_name, array(
         array(
             'id'=>'topbar_icon_menu',
             'type' => 'kad_icons',
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Topbar Icon Menu', 'virtue'),
             'subtitle'=> __('Choose your icons for the topbar icon menu.', 'virtue'),
             //'desc' => __('This field will store all slides values into a multidimensional array to use into a foreach loop.', 'virtue')
@@ -400,12 +400,12 @@ Redux::setSection( $opt_name, array(
             'options' => array('none' => 'None','flex' => 'Flex Slider','thumbs' => 'Thumb Slider', 'carousel' => 'Carousel Slider','latest' => 'Latest Posts', 'video' => 'Video'),
             'default' => '',
             'width' => 'width:60%',
-            'customizer' => false,
+            'customizer' => true,
             ),
         array(
             'id'=>'home_slider',
             'type' => 'kad_slides',
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Slider Images', 'virtue'),
             'subtitle'=> __('Use large images for best results.', 'virtue'),
             //'desc' => __('This field will store all slides values into a multidimensional array to use into a foreach loop.', 'virtue')
@@ -418,7 +418,7 @@ Redux::setSection( $opt_name, array(
             "default"       => "400",
             "min"       => "100",
             "step"      => "5",
-            'customizer' => false,
+            'customizer' => true,
             "max"       => "600",
             ), 
         array(
@@ -429,7 +429,7 @@ Redux::setSection( $opt_name, array(
             "default"       => "1170",
             "min"       => "600",
             "step"      => "5",
-            'customizer' => false,
+            'customizer' => true,
             "max"       => "1170",
             ), 
         array(
@@ -438,7 +438,7 @@ Redux::setSection( $opt_name, array(
             'title' => __('Auto Play?', 'virtue'),
             'subtitle'=> __('This determines if a slider automatically scrolls', 'virtue'),
             "default"       => 1,
-            'customizer' => false,
+            'customizer' => true,
             ),
         array(
             'id'=>'slider_pausetime',
@@ -448,7 +448,7 @@ Redux::setSection( $opt_name, array(
             "default"       => "7000",
             "min"       => "3000",
             "step"      => "1000",
-            'customizer' => false,
+            'customizer' => true,
             "max"       => "12000",
             ), 
         array(
@@ -457,7 +457,7 @@ Redux::setSection( $opt_name, array(
             'title' => __('Transition Type', 'virtue'), 
             'subtitle' => __("Choose a transition type", 'virtue'),
             'options' => array('fade' => 'Fade','slide' => 'Slide'),
-            'customizer' => false,
+            'customizer' => true,
             'default' => 'fade'
             ),
         array(
@@ -467,7 +467,7 @@ Redux::setSection( $opt_name, array(
             'desc'=> __('How long for slide transitions, in milliseconds.', 'virtue'),
             "default"       => "600",
             "min"       => "200",
-            'customizer' => false,
+            'customizer' => true,
             "step"      => "100",
             "max"       => "1200",
             ), 
@@ -477,12 +477,12 @@ Redux::setSection( $opt_name, array(
             'title' => __('Show Captions?', 'virtue'),
             'subtitle'=> __('Choose to show or hide captions', 'virtue'),
             "default"       => 0,
-            'customizer' => false,
+            'customizer' => true,
             ),
         array(
             'id'=>'video_embed',
             'type' => 'textarea',
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Video Embed Code', 'virtue'), 
             'subtitle' => __('If your using a video on the home page place video embed code here.', 'virtue'),
             'default' => ''
@@ -501,7 +501,7 @@ Redux::setSection( $opt_name, array(
     	array(
             'id'=>'mobile_switch',
             'type' => 'switch',
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Would you like to use this feature?', 'virtue'),
             'subtitle'=> __('Choose if you would like to show a different slider on your home page for your mobile visitors.', 'virtue'),
             "default"       => 0,
@@ -509,7 +509,7 @@ Redux::setSection( $opt_name, array(
         array(
             'id'=>'choose_mobile_slider',
             'type' => 'select',
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Choose a Slider for Mobile', 'virtue'), 
             'subtitle' => __("Choose which slider you would like to show for mobile viewers.", 'virtue'),
             //'desc' => __('This is the description field, again good for additional info.', 'virtue'),
@@ -521,7 +521,7 @@ Redux::setSection( $opt_name, array(
         array(
             'id'=>'home_mobile_slider',
             'type' => 'kad_slides',
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Slider Images', 'virtue'),
             'subtitle'=> __('Use large images for best results.', 'virtue'),
             'required' => array('mobile_switch','=','1'),
@@ -530,7 +530,7 @@ Redux::setSection( $opt_name, array(
         array(
             'id'=>'mobile_slider_size',
             'type' => 'slider', 
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Slider Max Height', 'virtue'),
             'desc'=> __('Note: does not work if images are smaller than max.', 'virtue'),
             "default"       => "300",
@@ -542,7 +542,7 @@ Redux::setSection( $opt_name, array(
         array(
             'id'=>'mobile_slider_size_width',
             'type' => 'slider', 
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Slider Max Width', 'virtue'),
             'desc'=> __('Note: does not work if images are smaller than max.', 'virtue'),
             "default"       => "480",
@@ -554,7 +554,7 @@ Redux::setSection( $opt_name, array(
         array(
             'id'=>'mobile_slider_autoplay',
             'type' => 'switch', 
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Auto Play?', 'virtue'),
             'subtitle'=> __('This determines if a slider automatically scrolls', 'virtue'),
             "default"       => 1,
@@ -563,7 +563,7 @@ Redux::setSection( $opt_name, array(
         array(
             'id'=>'mobile_slider_pausetime',
             'type' => 'slider',
-            'customizer' => false, 
+            'customizer' => true, 
             'title' => __('Slider Pause Time', 'virtue'),
             'desc'=> __('How long to pause on each slide, in milliseconds.', 'virtue'),
             "default"       => "7000",
@@ -575,7 +575,7 @@ Redux::setSection( $opt_name, array(
         array(
             'id'=>'mobile_trans_type',
             'type' => 'select',
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Transition Type', 'virtue'), 
             'subtitle' => __("Choose a transition type", 'virtue'),
             'options' => array('fade' => 'Fade','slide' => 'Slide'),
@@ -585,7 +585,7 @@ Redux::setSection( $opt_name, array(
         array(
             'id'=>'mobile_slider_transtime',
             'type' => 'slider', 
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Slider Transition Time', 'virtue'),
             'desc'=> __('How long for slide transitions, in milliseconds.', 'virtue'),
             "default"       => "600",
@@ -597,7 +597,7 @@ Redux::setSection( $opt_name, array(
         array(
             'id'=>'mobile_slider_captions',
             'type' => 'switch', 
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Show Captions?', 'virtue'),
             'subtitle'=> __('Choose to show or hide captions', 'virtue'),
             "default"       => 0,
@@ -606,7 +606,7 @@ Redux::setSection( $opt_name, array(
         array(
             'id'=>'mobile_video_embed',
             'type' => 'textarea',
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Video Embed Code', 'virtue'), 
             'subtitle' => __('If your using a video on the home page place video embed code here.', 'virtue'),
             'default' => '',
@@ -649,7 +649,7 @@ Redux::setSection( $opt_name, array(
     	 array(
             "id" => "homepage_layout",
             "type" => "sorter",
-            'customizer' => false,
+            'customizer' => true,
             "title" => __('Homepage Layout Manager', 'virtue'),
             "subtitle" => __('Organize how you want the layout to appear on the homepage', 'virtue'),
             //"compiler"=>'true',    
@@ -669,20 +669,20 @@ Redux::setSection( $opt_name, array(
          array(
             'id'=>'info_blog_settings',
             'type' => 'info',
-            'customizer' => false,
+            'customizer' => true,
             'desc' => __('Home Blog Settings', 'virtue'),
             ),
          array(
             'id'=>'blog_title',
             'type' => 'text',
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Home Blog Title', 'virtue'),
             'subtitle' => __('ex: Latest from the blog', 'virtue'),
             ),
          array(
             'id'=>'home_post_count',
             'type' => 'slider', 
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Choose How many posts on Homepage', 'virtue'),
             //'desc'=> __('Note: does not work if images are smaller than max.', 'virtue'),
             "default"       => "4",
@@ -693,7 +693,7 @@ Redux::setSection( $opt_name, array(
          array(
             'id'=>'home_post_type',
             'type' => 'select',
-            'customizer' => false,
+            'customizer' => true,
             'data' => 'categories',
             'title' => __('Limit posts to a Category', 'virtue'), 
             'subtitle' => __('Leave blank to select all', 'virtue'),
@@ -703,20 +703,20 @@ Redux::setSection( $opt_name, array(
          array(
             'id'=>'info_portfolio_settings',
             'type' => 'info',
-            'customizer' => false,
+            'customizer' => true,
             'desc' => __('Home Portfolio Carousel Settings', 'virtue'),
             ),
          array(
             'id'=>'portfolio_title',
             'type' => 'text',
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Home Portfolio Carousel title', 'virtue'),
             'subtitle' => __('ex: Portfolio Carousel title', 'virtue'),
             ),
          array(
             'id'=>'portfolio_type',
             'type' => 'select',
-            'customizer' => false,
+            'customizer' => true,
             'data' => 'terms',
             'args' => array('taxonomies'=>'portfolio-type', 'args'=>array()),
             'title' => __('Portfolio Carousel Category Type', 'virtue'), 
@@ -727,7 +727,7 @@ Redux::setSection( $opt_name, array(
          array(
             'id'=>'home_portfolio_carousel_count',
             'type' => 'slider', 
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Choose how many portfolio items are in carousel', 'virtue'),
             "default"       => "6",
             "min"       => "4",
@@ -737,7 +737,7 @@ Redux::setSection( $opt_name, array(
          array(
             'id'=>'home_portfolio_order',
             'type' => 'select',
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Portfolio Carousel Order by', 'virtue'), 
             'subtitle' => __("Choose how the portfolio items should be ordered in the carousel.", 'virtue'),
             'options' => array('menu_order' => 'Menu Order','title' => 'Title','date' => 'Date','rand' => 'Random'),
@@ -747,20 +747,20 @@ Redux::setSection( $opt_name, array(
          array(
             'id'=>'portfolio_show_type',
             'type' => 'switch', 
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Display Portfolio Types under Title', 'virtue'),
             "default"       => 0,
             ),
            array(
             'id'=>'info_iconmenu_settings',
             'type' => 'info',
-            'customizer' => false,
+            'customizer' => true,
             'desc' => __('Home Icon Menu', 'virtue'),
             ),
            array(
             'id'=>'icon_menu',
             'type' => 'kad_icons',
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Icon Menu', 'virtue'),
             'subtitle'=> __('Choose your icons for the icon menu.', 'virtue'),
             //'desc' => __('This field will store all slides values into a multidimensional array to use into a foreach loop.', 'virtue')
@@ -768,7 +768,7 @@ Redux::setSection( $opt_name, array(
            array(
             'id'=>'home_icon_menu_column',
             'type' => 'slider', 
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Choose how many columns in each row', 'virtue'),
             "default"       => "3",
             "min"       => "2",
@@ -778,7 +778,7 @@ Redux::setSection( $opt_name, array(
            array(
             'id'=>'info_page_content',
             'type' => 'info',
-            'customizer' => false,
+            'customizer' => true,
             'desc' => __('Page Content Options', 'virtue'),
             ),
            array(
@@ -886,7 +886,7 @@ Redux::setSection( $opt_name, array(
             'font-size'=>true,
             'line-height'=>true,
             'text-align' => false,
-            'customizer' => false,
+            'customizer' => true,
             //'word-spacing'=>false, // Defaults to false
             //'all_styles' => true,
             'color'=>true,
@@ -1375,7 +1375,7 @@ Redux::setSection( $opt_name, array(
             'font-size'=>true,
             'line-height'=>true,
             'text-align' => false,
-            'customizer' => false,
+            'customizer' => true,
             //'word-spacing'=>false, // Defaults to false
             //'all_styles' => true,
             'color'=>true,
@@ -1401,7 +1401,7 @@ Redux::setSection( $opt_name, array(
             'subsets'=>true, // Only appears if google is true and subsets not set to false
             'font-size'=>true,
             'line-height'=>true,
-            'customizer' => false,
+            'customizer' => true,
             'text-align' => false,
             //'word-spacing'=>false, // Defaults to false
             //'all_styles' => true,
@@ -1427,7 +1427,7 @@ Redux::setSection( $opt_name, array(
             'font-style'=>true, // Includes font-style and weight. Can use font-style or font-weight to declare
             'subsets'=>true, // Only appears if google is true and subsets not set to false
             'font-size'=>true,
-            'customizer' => false,
+            'customizer' => true,
             'line-height'=>true,
             'text-align' => false,
             //'word-spacing'=>false, // Defaults to false
@@ -1455,7 +1455,7 @@ Redux::setSection( $opt_name, array(
             'subsets'=>true, // Only appears if google is true and subsets not set to false
             'font-size'=>true,
             'line-height'=>true,
-            'customizer' => false,
+            'customizer' => true,
             'text-align' => false,
             //'word-spacing'=>false, // Defaults to false
             //'all_styles' => true,
@@ -1481,7 +1481,7 @@ Redux::setSection( $opt_name, array(
             'font-style'=>true, // Includes font-style and weight. Can use font-style or font-weight to declare
             'subsets'=>true, // Only appears if google is true and subsets not set to false
             'font-size'=>true,
-            'customizer' => false,
+            'customizer' => true,
             'line-height'=>true,
             'text-align' => false,
             //'word-spacing'=>false, // Defaults to false
@@ -1500,7 +1500,7 @@ Redux::setSection( $opt_name, array(
 		array(
             'id'=>'info_body_font',
             'type' => 'info',
-            'customizer' => false,
+            'customizer' => true,
             'desc' => __('Body Font Options', 'virtue'),
             ),
 		array(
@@ -1514,7 +1514,7 @@ Redux::setSection( $opt_name, array(
             'font-style'=>true, // Includes font-style and weight. Can use font-style or font-weight to declare
             'subsets'=>true, // Only appears if google is true and subsets not set to false
             'font-size'=>true,
-            'customizer' => false,
+            'customizer' => true,
             'line-height'=>true,
             'text-align' => false,
             //'word-spacing'=>false, // Defaults to false
@@ -1543,7 +1543,7 @@ Redux::setSection( $opt_name, array(
     	array(
             'id'=>'font_primary_menu',
             'type' => 'typography', 
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Primary Menu Font', 'virtue'),
             //'compiler'=>true, // Use if you want to hook in your own CSS compiler
             'font-family'=>true, 
@@ -1570,13 +1570,13 @@ Redux::setSection( $opt_name, array(
 		array(
             'id'=>'info_menu_secondary_font',
             'type' => 'info',
-            'customizer' => false,
+            'customizer' => true,
             'desc' => __('Secondary Menu Options', 'virtue'),
             ),
 		array(
             'id'=>'font_secondary_menu',
             'type' => 'typography', 
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Secondary Menu Font', 'virtue'),
             //'compiler'=>true, // Use if you want to hook in your own CSS compiler
             'font-family'=>true, 
@@ -1603,19 +1603,19 @@ Redux::setSection( $opt_name, array(
 		array(
             'id'=>'info_menu_mobile_font',
             'type' => 'info',
-            'customizer' => false,
+            'customizer' => true,
             'desc' => __('Mobile Menu Options', 'virtue'),
             ),
         array(
             'id'=>'mobile_submenu_collapse',
             'type' => 'switch', 
-            'customizer' => false,
+            'customizer' => true,
             'title' => __('Submenu items collapse until opened', 'virtue'),
             "default" => 0,
             ),
 		array(
             'id'=>'font_mobile_menu',
-            'customizer' => false,
+            'customizer' => true,
             'type' => 'typography', 
             'title' => __('Mobile Menu Font', 'virtue'),
             //'compiler'=>true, // Use if you want to hook in your own CSS compiler
@@ -1879,7 +1879,7 @@ Redux::setSection( $opt_name, array(
                             'id'         => 'opt-import-export',
                             'type'       => 'import_export',
                             'title'      => '',
-                            'customizer' => false,
+                            'customizer' => true,
                             'subtitle'   => '',
                             'full_width' => false,
                         ),
