@@ -33,17 +33,17 @@ jQuery('document').ready(function(){
     /* Boutons PDF/Imprimer */
     jQuery('a[href*="print=pdf"]').html('<i class="fa fa-fw fa-lg fa-file-pdf-o"></i> <abbr>PDF</abbr>').addClass('btn btn-default');
     jQuery('a[href*="print=print"]').html('<i class="fa fa-fw fa-lg fa-print"></i> Imprimer').addClass('btn btn-default');
-    jQuery('.pdfprnt-top-right').addClass('btn-group btn-group-xs pull-right pdf-print').removeClass('pdfprnt-top-right').css('margin-top','-1px');
-    if(jQuery('header .subhead').length) {
-        jQuery('header .subhead').prepend(jQuery('.btn-group.btn-group-xs.pull-right'));
-    }
-    jQuery('.home .pdf-print,.archive .pdf-print').remove();
+    jQuery('.pdfprnt-top-right').addClass('btn-group btn-group-xs pdf-print').removeClass('pdfprnt-top-right').css('margin-top','-1px').wrap('<div class="text-right"></div>');
+    jQuery('.home .pdf-print,.archive .pdf-print,.page .pdf-print,.search .pdf-print').remove();
 
     /* Author Bio Box */
     if(jQuery('#author-bio-box').length) {
         jQuery('#author-bio-box img.avatar').error(function() {
             jQuery(this).unbind('error');
             jQuery(this).attr('src', '/wp-content/plugins/fv-gravatar-cache/images/default.png');
-        });
+        }).css({
+            'height':'90px',
+            'background':'#fff url(/wp-content/plugins/fv-gravatar-cache/images/default.png) center top'
+        });;
     }
 });
