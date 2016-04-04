@@ -37,7 +37,7 @@ jQuery('document').ready(function(){
     if(jQuery('header .subhead').length) {
         jQuery('header .subhead').prepend(jQuery('.btn-group.btn-group-xs.pull-right'));
     }
-    jQuery('.home .pdfprnt-top-right,.archive .pdfprnt-top-right').remove();
+    jQuery('.home .pdf-print,.archive .pdf-print').remove();
 
     /* Author Bio Box */
     if(jQuery('#author-bio-box').length) {
