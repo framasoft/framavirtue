@@ -1,8 +1,9 @@
 jQuery('document').ready(function(){
     /* Habillage Social2Clics + Diaspora */
     jQuery('.social_share_privacy').addClass('well').css('padding','0 19px'); /* mise en forme */
-    jQuery('.social_share_privacy .settings_info').append(jQuery('#diaspora-button-container')); /* insertion du bouton diaspora */
-    jQuery('.twoclick-facebook').before(jQuery('.social_share_privacy .settings_info')); /* Diaspora placé avant Facebook */
+    jQuery('.social_share_privacy .settings_info').remove();
+    jQuery('.social_share_privacy ul').prepend('<li class="settings_info"></li>');
+    jQuery('.social_share_privacy .settings_info').append(jQuery('#diaspora-button-container')); /* déplacement du bouton diaspora */
 
     /* Suppression des images vides */
     jQuery('.col-md-5').has('img[src$="post_standard.jpg"]').each(function() {
@@ -29,14 +30,17 @@ jQuery('document').ready(function(){
         return false;
     });
 
-    /* Avatar */
-    jQuery('#author-bio-box img.avatar').error(function() {
-        jQuery(this).unbind('error').attr('src', '/wp-content/plugins/fv-gravatar-cache/images/default.png');
-    });
-
     /* Boutons PDF/Imprimer */
     jQuery('a[href$="print=pdf"]').html('<i class="fa fa-fw fa-lg fa-file-pdf-o"></i> <abbr>PDF</abbr>').addClass('btn btn-default');
     jQuery('a[href$="print=print"]').html('<i class="fa fa-fw fa-lg fa-print"></i> Imprimer').addClass('btn btn-default');
     jQuery('.pdfprnt-top-right').addClass('btn-group btn-group-sm pull-right').removeClass('pdfprnt-top-right');
     jQuery('.home .pdfprnt-top-right').remove();
+
+    /* Author Bio Box */
+    if(jQuery('#author-bio-box').length) {
+        jQuery('#author-bio-box img.avatar').error(function() {
+            jQuery(this).unbind('error');
+            jQuery(this).attr('src', '/wp-content/plugins/fv-gravatar-cache/images/default.png');
+        });
+    }
 });
