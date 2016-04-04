@@ -1,6 +1,7 @@
 <?php get_template_part('templates/head'); ?>
   <body <?php body_class(); ?>>
     <script type="text/javascript" src="https://n5.framasoft.org/nav/nav.js"></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/framavirtue.js"></script>
     <div id="wrapper" class="container">
     <?php do_action('get_header');
         get_template_part('templates/header');
@@ -10,7 +11,7 @@
       <?php do_action('kt_afterheader');
 
           include kadence_template_path(); ?>
-            
+
           <?php if (kadence_display_sidebar()) : ?>
             <aside class="<?php echo esc_attr(kadence_sidebar_class()); ?> kad-sidebar" role="complementary">
               <div class="sidebar">

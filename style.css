@@ -7,12 +7,12 @@ Template: virtue
 
 @import url("../virtue/style.css");
 
-body { 
+body {
     font-family: "DejaVu Sans",Verdana,Geneva,sans-serif;
     color: #333;
     background-color: #EEE;
 }
-header #logo a.brand, 
+header #logo a.brand,
 .logofont,
 .kad_tagline,
 .headerfont,
@@ -20,12 +20,38 @@ header #logo a.brand,
     font-family: "DejaVu Sans",Verdana,Geneva,sans-serif !important;
 }
 
-h2.lead {font-style:italic;}
+h2.lead {
+    font-style:italic;
+}
 
-.boxed #wrapper.container { 
+a h4,
+#menu-barre-du-haut a,
+.homeiconmenu a,
+.comment-meta a {
+    text-decoration:none !important;
+}
+
+#content {
+    font-size:16px;
+    line-height: 25px
+}
+
+#commentform label,
+.comment-meta,
+.posttags, .posttags a,
+.subhead, .subhead a {
+    font-size: 12px;
+}
+
+#content .entry-content li,
+#content .entry-content p { margin : 0 0 17px ;}
+
+#commentform .row > .row { margin:0} /* Fix bug Virtue */
+
+.boxed #wrapper.container {
     margin-top:30px;
     margin-bottom:30px !important;
-    background-color: #FFF; 
+    background-color: #FFF;
     box-shadow: -4px 6px 9px rgba(50, 50, 50, 0.5) !important;
 }
 
