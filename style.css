@@ -48,6 +48,12 @@ a h4,
 
 #commentform .row > .row { margin:0} /* Fix bug Virtue */
 
+.center {text-align:center}
+
+img.ombre {
+    box-shadow: 0px 4px 9px rgba(50, 50, 50, 0.5);
+}
+
 .boxed #wrapper.container {
     margin-top:30px;
     margin-bottom:30px !important;
