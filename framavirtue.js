@@ -33,8 +33,11 @@ jQuery('document').ready(function(){
     /* Boutons PDF/Imprimer */
     jQuery('a[href$="print=pdf"]').html('<i class="fa fa-fw fa-lg fa-file-pdf-o"></i> <abbr>PDF</abbr>').addClass('btn btn-default');
     jQuery('a[href$="print=print"]').html('<i class="fa fa-fw fa-lg fa-print"></i> Imprimer').addClass('btn btn-default');
-    jQuery('.pdfprnt-top-right').addClass('btn-group btn-group-sm pull-right').removeClass('pdfprnt-top-right');
-    jQuery('.home .pdfprnt-top-right').remove();
+    jQuery('.pdfprnt-top-right').addClass('btn-group btn-group-xs pull-right pdf-print').removeClass('pdfprnt-top-right').css('margin-top','-1px');
+    if(jQuery('header .subhead').length) {
+        jQuery('header .subhead').prepend(jQuery('.btn-group.btn-group-xs.pull-right'));
+    }
+    jQuery('.home .pdfprnt-top-right,.archive .pdfprnt-top-right').remove();
 
     /* Author Bio Box */
     if(jQuery('#author-bio-box').length) {
