@@ -37,13 +37,16 @@ jQuery('document').ready(function(){
     jQuery('.home .pdf-print,.archive .pdf-print,.search .pdf-print').remove();
 
     /* Author Bio Box */
-    if(jQuery('#author-bio-box').length) {
-        jQuery('#author-bio-box img.avatar').error(function() {
-            jQuery(this).unbind('error');
-            jQuery(this).attr('src', '/wp-content/plugins/fv-gravatar-cache/images/default.png');
-        }).css({
-            'height':'90px',
-            'background':'#fff url(/wp-content/plugins/fv-gravatar-cache/images/default.png) center top'
-        });;
+    var f$_avatar = jQuery('#author-bio-box img.avatar');
+    var f$_default_avatar = function() {
+        if(f$_avatar.get(0).naturalWidth === 0) {
+            f$_avatar.attr('src', '/wp-content/plugins/fv-gravatar-cache/images/default.png')
+        }
+    }
+    if(f$_avatar.length) {
+        f$_avatar
+            .css('height','90px')
+            .on('load', function(){if(f$_avatar.get(0).complete) {f$_default_avatar()}})
+            .on('error', f$_default_avatar());
     }
 });
