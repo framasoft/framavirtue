@@ -34,7 +34,7 @@ jQuery('document').ready(function(){
     jQuery('a[href*="print=pdf"]').html('<i class="fa fa-fw fa-lg fa-file-pdf-o"></i> <abbr>PDF</abbr>').addClass('btn btn-default');
     jQuery('a[href*="print=print"]').html('<i class="fa fa-fw fa-lg fa-print"></i> Imprimer').addClass('btn btn-default');
     jQuery('.pdfprnt-top-right').addClass('btn-group btn-group-xs pdf-print').removeClass('pdfprnt-top-right').css('margin-top','-1px').wrap('<div class="text-right"></div>');
-    jQuery('.home .pdf-print,.archive .pdf-print,.page .pdf-print,.search .pdf-print').remove();
+    jQuery('.home .pdf-print,.archive .pdf-print,.search .pdf-print').remove();
 
     /* Author Bio Box */
     if(jQuery('#author-bio-box').length) {
