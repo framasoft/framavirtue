@@ -250,3 +250,41 @@ header > a:hover,
 .comment {
     margin-top: 10px;
 }
+
+/* Lisibilité */
+
+.single-article article {
+    max-width: 75rem;
+    margin: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: "DejaVu Sans";
+	padding-top: 1.5rem;
+	line-height: initial;
+}
+
+h2{
+	font-size:24px;
+}
+
+h3{
+	font-size:18px;
+}
+
+blockquote{
+	padding: 0 20px;
+}
+
+blockquote p{
+	font-size: 16px;
+}
+
+#content .entry-content li {
+    margin: 0 0 0.5rem;
+}
+#content .entry-content p{
+    margin: 0 0 1rem;
+}
