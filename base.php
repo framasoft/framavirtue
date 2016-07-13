@@ -1,6 +1,6 @@
 <?php get_template_part('templates/head'); ?>
   <body <?php body_class(); ?>>
-    <script type="text/javascript" src="https://n5.framasoft.org/nav/nav.js"></script>
+    <script type="text/javascript" src="https://framasoft.org/nav/nav.js"></script>
     <div id="wrapper" class="container">
     <?php do_action('get_header');
         get_template_part('templates/header');
