@@ -221,7 +221,7 @@ Class FV_Gravatar_Cache {
     //echo 'Not in cache: '.var_export( $not_in_cache, true ).' -->';
     //  what to do, if gravatar is not in cache?
     if( isset($not_in_cache) && $not_in_cache ) {
-      return preg_replace( "/src='(http.*?gravatar\.com.*)' class=/", "src='/wp-content/plugins/fv-gravatar-cache/images/default.png' class=", $image );  //  just display the remote image, don't download the gravatar
+      return str_replace( $url, '/wp-content/plugins/fv-gravatar-cache/images/default.png', $image );  //  just display the remote image, don't download the gravatar
       //$gravatar = fv_get_url( $url );
       //echo 'Downloading: '; var_dump( $url );
       $gravatar_local = $this->Cache( $comment->comment_author_email, '', '' );
@@ -239,7 +239,7 @@ Class FV_Gravatar_Cache {
     }
     //echo '<!-- Using: "'.$gravatar_local.'" -->';
     if( !$gravatar_local ) {
-      return preg_replace( "/src='(http.*?gravatar\.com.*)' class=/", "src='/wp-content/plugins/fv-gravatar-cache/images/default.png' class=", $image );
+      return str_replace( $url, '/wp-content/plugins/fv-gravatar-cache/images/default.png', $image );
     }
     $image = str_replace( $url, $gravatar_local, $image );
     return $image;
