@@ -235,7 +235,7 @@ Class FV_Gravatar_Cache {
       }*/
     }
     else {
-      $gravatar_local = $gravatar['url'];
+      $gravatar_local = str_replace('http://', 'https://', $gravatar['url']);
     }
     //echo '<!-- Using: "'.$gravatar_local.'" -->';
     if( !$gravatar_local ) {
