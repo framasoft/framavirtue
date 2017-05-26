@@ -1,10 +1,6 @@
 <?php global $virtue; ?>
 <header class="banner headerclass" itemscope itemtype="http://schema.org/WPHeader">
 <?php 
-    if (kadence_display_topbar()) :
-      get_template_part('templates/header', 'topbar'); 
-    endif; 
-  
     if(isset($virtue['logo_layout'])) {
       if($virtue['logo_layout'] == 'logocenter') {
         $logocclass = 'col-md-12';
