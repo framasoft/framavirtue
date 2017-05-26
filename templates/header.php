@@ -1,23 +1,12 @@
 <?php global $virtue; ?>
-<header class="banner headerclass" itemscope itemtype="http://schema.org/WPHeader">
-<?php 
-    if(isset($virtue['logo_layout'])) {
-      if($virtue['logo_layout'] == 'logocenter') {
-        $logocclass = 'col-md-12';
-        $menulclass = 'col-md-12';
-      } else if($virtue['logo_layout'] == 'logohalf') {
-        $logocclass = 'col-md-6'; 
-        $menulclass = 'col-md-6';
-      } else {
-        $logocclass = 'col-md-4'; 
-        $menulclass = 'col-md-8';
-      } 
-    } else {
-      $logocclass = 'col-md-4';
-      $menulclass = 'col-md-8'; 
-    }?>
-<div class="container">
-  <div class="row">
+<header class="banner headerclass" role="banner">
+<?php if(isset($virtue['logo_layout'])) {
+  if($virtue['logo_layout'] == 'logocenter') {$logocclass = 'col-md-12'; $menulclass = 'col-md-12';}
+  else if($virtue['logo_layout'] == 'logohalf') {$logocclass = 'col-md-6'; $menulclass = 'col-md-6';}
+  else {$logocclass = 'col-md-4'; $menulclass = 'col-md-8';} 
+} else {$logocclass = 'col-md-4'; $menulclass = 'col-md-8'; }?>
+  <div class="container">
+    <div class="row">
       <div class="<?php echo esc_attr($logocclass); ?> clearfix kad-header-left">
             <div id="logo" class="logocase">
               <h1>
