@@ -2,9 +2,18 @@
 define( 'LAYOUT_PATH', get_template_directory() . '/assets/css/skins/' );
 define( 'OPTIONS_PATH', get_template_directory_uri() . '/themeoptions/options/' );
 load_theme_textdomain('virtue', get_template_directory() . '/languages');
-$alt_stylesheet_path = LAYOUT_PATH;
+$alt_stylesheet_path = apply_filters('kt_skin_style_path', LAYOUT_PATH);
 $alt_stylesheets = array(); 
-if ( is_dir($alt_stylesheet_path) ) {if ($alt_stylesheet_dir = opendir($alt_stylesheet_path) ) {while ( ($alt_stylesheet_file = readdir($alt_stylesheet_dir)) !== false ) {if(stristr($alt_stylesheet_file, ".css") !== false) {$alt_stylesheets[$alt_stylesheet_file] = $alt_stylesheet_file;}}}}
+if ( is_dir($alt_stylesheet_path) ) {
+    if ($alt_stylesheet_dir = opendir($alt_stylesheet_path) ) {
+        while ( ($alt_stylesheet_file = readdir($alt_stylesheet_dir)) !== false ) {
+            if(stristr($alt_stylesheet_file, ".css") !== false) {
+                $alt_stylesheets[$alt_stylesheet_file] = $alt_stylesheet_file;
+            }
+        }
+        closedir($alt_stylesheet_dir);
+    }
+}
 
 
 // BEGIN Config
@@ -50,8 +59,8 @@ if ( ! class_exists( 'Redux' ) ) {
         'disable_tracking'     => true,
         'customizer_only'      => false,
         'save_defaults'        => false,
-        'intro_text'           => 'Upgrade to <a href="http://kadencethemes.com/product/virtue-premium-theme/" target="_blank" >Virtue Premium</a> for more great features. Over 50 more theme options, premium sliders and carousels, breadcrumbs, custom post types and much much more!',           
-        'footer_credit'        => __('Thank you for using the Virtue Theme by <a href="http://kadencethemes.com/" target="_blank">Kadence Themes</a>.', 'virtue'),
+        'intro_text'           => 'Upgrade to <a href="https://www.kadencethemes.com/product/virtue-premium-theme/" target="_blank" >Virtue Premium</a> for more great features. Over 50 more theme options, premium sliders and carousels, breadcrumbs, custom post types and much much more!',           
+        'footer_credit'        => __('Thank you for using the Virtue Theme by <a href="https://www.kadencethemes.com/" target="_blank">Kadence Themes</a>.', 'virtue'),
         'hints'                => array(
             'icon'          => 'icon-question',
             'icon_position' => 'right',
@@ -107,8 +116,8 @@ if ( ! class_exists( 'Redux' ) ) {
     'id' => 'main_settings',
     'header' => '',
     'desc' => "<div class='redux-info-field'><h3>".__('Welcome to Virtue Theme Options', 'virtue')."</h3>
-        <p>".__('This theme was developed by', 'virtue')." <a href=\"http://kadencethemes.com/\" target=\"_blank\">Kadence Themes</a></p>
-        <p>".__('For theme documentation visit', 'virtue').": <a href=\"http://docs.kadencethemes.com/virtue/\" target=\"_blank\">docs.kadencethemes.com/virtue/</a>
+        <p>".__('This theme was developed by', 'virtue')." <a href=\"https://kadencethemes.com/\" target=\"_blank\">Kadence Themes</a></p>
+        <p>".__('For theme documentation visit', 'virtue').": <a href=\"http://docs.kadencethemes.com/virtue-free/\" target=\"_blank\">docs.kadencethemes.com/virtue-free/</a>
         <br />
         ".__('For support please visit', 'virtue').": <a href=\"http://wordpress.org/support/theme/virtue\" target=\"_blank\">wordpress.org/support/theme/virtue</a></p></div>",
     'icon_class' => 'icon-large',
@@ -392,12 +401,18 @@ Redux::setSection( $opt_name, array(
     'desc' => "<div class='redux-info-field'><h3>".__('Home Page Slider Options', 'virtue')."</h3></div>",
     'fields' => array(
         array(
+            'id'=>'info_home_slider_settings_notice',
+            'type' => 'info',
+            'customizer' => true,
+            'desc' => __('*NOTE: Make sure Virtue/Pinnacle Toolkit plugin is activated* <br>Go to Apperance > Theme Options > Home Slider for all Home slider settings', 'virtue'),
+            ),
+        array(
             'id'=>'choose_slider',
             'type' => 'select',
             'title' => __('Choose a Home Image Slider', 'virtue'), 
             'subtitle' => __("If you don't want an image slider on your home page choose none.", 'virtue'),
             //'desc' => __('This is the description field, again good for additional info.', 'virtue'),
-            'options' => array('none' => 'None','flex' => 'Flex Slider','thumbs' => 'Thumb Slider', 'carousel' => 'Carousel Slider','latest' => 'Latest Posts', 'video' => 'Video'),
+            'options' => array('none' => 'None','flex' => 'Flex Slider', 'fullwidth' => 'Fullwidth Slider','thumbs' => 'Thumb Slider', 'carousel' => 'Carousel Slider','latest' => 'Latest Posts', 'video' => 'Video'),
             'default' => '',
             'width' => 'width:60%',
             'customizer' => true,
@@ -792,6 +807,12 @@ Redux::setSection( $opt_name, array(
             'default' => 'summery',
             'width' => 'width:60%',
             ),
+           array(
+            'id'=>'info_home_layout_settings_notice',
+            'type' => 'info',
+            'customizer' => true,
+            'desc' => __('*NOTE: Make sure Virtue/Pinnacle Toolkit plugin is activated* <br>Go to Apperance > Theme Options > Home Layout for all home layout settings', 'virtue'),
+            ),
         ),
 
     )
@@ -947,6 +968,18 @@ Redux::setSection( $opt_name, array(
             'customizer' => true,
             'desc' => __('Product Page Settings', 'virtue'),
             ),
+        array(
+            'id'=>'product_gallery_slider',
+            'type' => 'switch', 
+            'title' => __('Enable woocommerce slider for product gallery? (must be woocommerce 3.0+)', 'virtue'),
+            "default" => 0,
+        ),
+        array(
+            'id'=>'product_gallery_zoom',
+            'type' => 'switch', 
+            'title' => __('Enable woocommerce hover zoom for product gallery? (must be woocommerce 3.0+)', 'virtue'),
+            "default" => 0,
+        ), 
         array(
             'id'=>'product_tabs',
             'type' => 'switch', 
@@ -1362,6 +1395,12 @@ Redux::setSection( $opt_name, array(
     'title' => __('Typography', 'virtue'),
     'desc' => "<div class='redux-info-field'><h3>".__('Header Font Options', 'virtue')."</h3></div>",
     'fields' => array(
+        array(
+            'id'=>'info_typography_settings_notice',
+            'type' => 'info',
+            'customizer' => true,
+            'desc' => __('*NOTE: Make sure Virtue/Pinnacle Toolkit plugin is activated* <br>Go to Apperance > Theme Options > Typography settings for all Typography settings', 'virtue'),
+            ),
     	array(
             'id'=>'font_h1',
             'type' => 'typography', 
@@ -1540,6 +1579,12 @@ Redux::setSection( $opt_name, array(
     'title' => __('Menu Settings', 'virtue'),
     'desc' => "<div class='redux-info-field'><h3>".__('Primary Menu Options', 'virtue')."</h3></div>",
     'fields' => array(
+        array(
+            'id'=>'info_menu_settings_notice',
+            'type' => 'info',
+            'customizer' => true,
+            'desc' => __('*NOTE: Make sure Virtue/Pinnacle Toolkit plugin is activated* <br>Go to Apperance > Theme Options > Menu settings for all menu settings', 'virtue'),
+            ),
     	array(
             'id'=>'font_primary_menu',
             'type' => 'typography', 
@@ -1648,8 +1693,16 @@ Redux::setSection( $opt_name, array(
     'icon_class' => 'icon-large',
     'id' => 'pagepost_settings',
     'title' => __('Page/Post Settings', 'virtue'),
-    'desc' => "<div class='redux-info-field'><h3>".__('Page and Post Settings', 'virtue')."</h3></div>",
+    'desc' => "<div class='redux-info-field'><h3>".__('Page and Post Comment Settings', 'virtue')."</h3></div>",
     'fields' => array(
+        array(
+            'id'=>'close_comments',
+            'type' => 'switch',
+            'customizer' => true, 
+            'title' => __('Show Comments Closed Text?', 'virtue'),
+            'subtitle' => __('Choose to show or hide comments closed alert below posts.', 'virtue'),
+            "default" => 0,
+            ),
         array(
             'id'=>'page_comments',
             'type' => 'switch',
@@ -1657,6 +1710,20 @@ Redux::setSection( $opt_name, array(
             'title' => __('Allow Comments on Pages', 'virtue'),
             'subtitle' => __('Turn on to allow comments on pages', 'virtue'),
             "default" => 0,
+            ),
+        array(
+            'id'=>'portfolio_comments',
+            'type' => 'switch',
+            'customizer' => true,
+            'title' => __('Allow Comments on Portfolio Posts', 'virtue'),
+            'subtitle' => __('Turn on to allow comments on Portfolio posts', 'virtue'),
+            "default" => 0,
+            ),
+        array(
+            'id'=>'info_portfolio_post_defaults',
+            'type' => 'info',
+            'customizer' => true,
+            'desc' => __('Portfolio Post', 'virtue'),
             ),
         array(
             'id'=>'portfolio_link',
@@ -1668,20 +1735,28 @@ Redux::setSection( $opt_name, array(
             'subtitle' => __('This sets the link in every single portfolio page. *note: You still have to set the page template to portfolio.', 'virtue'),
             ),
         array(
-            'id'=>'portfolio_comments',
-            'type' => 'switch',
+            'id'=>'info_portfolio_typepage_defaults',
+            'type' => 'info',
             'customizer' => true,
-            'title' => __('Allow Comments on Portfolio Posts', 'virtue'),
-            'subtitle' => __('Turn on to allow comments on Portfolio posts', 'virtue'),
-            "default" => 0,
+            'desc' => __('Portfolio Type Page Defaults', 'virtue'),
             ),
         array(
-            'id'=>'close_comments',
+            'id'=>'portfolio_type_columns',
+            'type' => 'select',
+            'customizer' => true,
+            'title' => __('Portfolio Type - Post Columns', 'virtue'), 
+            'subtitle' => __("Choose how many columns for portfolio type pages", 'virtue'),
+            'options' => array('3' => 'Three Columns','4' => 'Four Column', '5' => 'Five Column'),
+            'default' => '3',
+            'width' => 'width:60%',
+            ),
+        array(
+            'id'=>'portfolio_type_under_title',
             'type' => 'switch',
-            'customizer' => true, 
-            'title' => __('Show Comments Closed Text?', 'virtue'),
-            'subtitle' => __('Choose to show or hide comments closed alert below posts.', 'virtue'),
-            "default" => 0,
+            'customizer' => true,
+            'title' => __('Show Types under Title', 'virtue'),
+            'subtitle' => __('Choose to show or hide portfolio type under title.', 'virtue'),
+            "default" => 1,
             ),
         array(
             'id'=>'info_blog_defaults',
@@ -1787,9 +1862,9 @@ Redux::setSection( $opt_name, array(
             'id'=>'virtue_custom_favicon',
             'type' => 'media', 
             'customizer' => true,
-            'preview'=> true,
-            'title' => __('Custom Favicon', 'virtue'),
-            'subtitle' => __('Upload a 16px x 16px png/gif/ico image that will represent your website favicon.', 'virtue'),
+            'preview'=> false,
+            'title' => __('Custom Favicon, *Note depreciated. Use WordPress site icon in customizer.', 'virtue'),
+            'subtitle' => __('Go to apperance > customize > site identity and set your favicon there.', 'virtue'),
             ),
         array(
             'id'=>'contact_email',
@@ -1844,10 +1919,25 @@ Redux::setSection( $opt_name, array(
         array(
             'id'=>'kadence_lightbox',
             'type' => 'switch', 
+            'on' => __('Lightbox Off', 'virtue'),
+            'off' => __('Lightbox On', 'virtue'),
             'customizer' => true,
             'title' => __('Turn Off Theme Lightbox?', 'virtue'),
             "default" => 0,
             ),
+        array(
+            'id'=>'info_gmaps',
+            'type' => 'info',
+            'desc' => __('Theme Google Maps', 'virtue'),
+            ),
+        array(
+            'id'=>'google_map_api',
+            'type' => 'text',
+            'title' => __('Google Map API', 'virtue'),
+            'subtitle' => __('For best performance add your own API for google maps.', 'virtue'),
+            'description' =>'<a target="_blank" href="https://developers.google.com/maps/documentation/javascript/get-api-key">Get an API code Here</a>',
+            'default' => ''
+            ),  
         ),
     )
 );
@@ -1864,7 +1954,7 @@ Redux::setSection( $opt_name, array(
             'customizer' => true,
             'title' => __('Custom CSS', 'virtue'), 
             'subtitle' => __('Quickly add some CSS to your theme by adding it to this block.', 'virtue'),
-            'validate' => 'css',
+            //'validate' => 'css',
             ),
         ),
     )
@@ -1881,7 +1971,7 @@ Redux::setSection( $opt_name, array(
                             'title'      => '',
                             'customizer' => true,
                             'subtitle'   => '',
-                            'full_width' => false,
+                            'full_width' => true,
                         ),
                     ),
                 ) );
@@ -1894,10 +1984,9 @@ Redux::setSection( $opt_name, array(
 
 function virtue_override_panel() {
     wp_dequeue_style( 'redux-admin-css' );
-    wp_register_style('virtue-redux-custom-css', get_template_directory_uri() . '/themeoptions/options/css/style.css', false, 250);    
+    wp_register_style('virtue-redux-custom-css', get_template_directory_uri() . '/themeoptions/options/css/style.css', false, 258);    
     wp_enqueue_style( 'virtue-redux-custom-css' );
     wp_dequeue_style( 'select2-css' );
-    wp_dequeue_script( 'select2-js' );
     wp_dequeue_style( 'redux-elusive-icon' );
     wp_dequeue_style( 'redux-elusive-icon-ie7' );
 }
