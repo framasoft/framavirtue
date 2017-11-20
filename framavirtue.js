@@ -1,12 +1,16 @@
 jQuery('document').ready(function(){
     jQuery('#topbar').before(jQuery('header > .container'));
     jQuery('#author,#email,#url,#comment').addClass('form-control');
-    
+
     /* Habillage Social2Clics + Diaspora */
-    jQuery('.social_share_privacy').addClass('well').css('padding','0 19px'); /* mise en forme */
-    jQuery('.social_share_privacy .settings_info').remove();
-    jQuery('.social_share_privacy ul').prepend('<li class="settings_info"></li>');
-    jQuery('.social_share_privacy .settings_info').append(jQuery('#diaspora-button-container')); /* déplacement du bouton diaspora */
+    jQuery('.social-sharing').prepend(jQuery('#diaspora-button-container'));
+    jQuery('#diaspora-button-container').css({
+        'float': 'left',
+        'margin-top': '10px',
+        'margin-right': '8px'
+    });
+    jQuery('#diaspora-button-container a').css('text-indent','0');
+
 
     /* Suppression des images vides */
     jQuery('.col-md-5').has('img[src$="post_standard.jpg"]').each(function() {
@@ -48,7 +52,7 @@ jQuery('document').ready(function(){
     }
     if(f$_avatar.length) {
         f$_avatar
-            .css('height','90px')
+            .css('height','70px')
             .on('load', function(){if(f$_avatar.get(0).complete) {f$_default_avatar()}})
             .on('error', f$_default_avatar());
     }

@@ -233,7 +233,8 @@ header > a:hover,
 .comment .avatar {
     margin-right: -36px;
     border:none;
-    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    /*border-top: 1px solid rgba(0, 0, 0, 0.15);*/
+    margin-top:15px;
 }
 .comment .media-body {
     border:none;
@@ -249,15 +250,20 @@ header > a:hover,
 }
 .comment {
     margin-top: 10px;
+    padding:10px 0;
 }
 
 /* Lisibilité */
-
-.single-article article {
-    max-width: 75rem;
-    margin: auto;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+@media (min-width: 992px) {
+    .single-article .main > article {
+        max-width: inherit;
+        padding-left: 7rem;
+        padding-right: 7rem;
+    }
+    #comments {
+        padding-left: 7rem;
+        padding-right: 7rem;
+    }
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -288,3 +294,5 @@ blockquote p{
 #content .entry-content p{
     margin: 0 0 1rem;
 }
+
+
