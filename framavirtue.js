@@ -1,4 +1,7 @@
 jQuery('document').ready(function(){
+    jQuery('#topbar').before(jQuery('header > .container'));
+    jQuery('#author,#email,#url,#comment').addClass('form-control');
+    
     /* Habillage Social2Clics + Diaspora */
     jQuery('.social_share_privacy').addClass('well').css('padding','0 19px'); /* mise en forme */
     jQuery('.social_share_privacy .settings_info').remove();
