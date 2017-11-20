@@ -12,6 +12,6 @@ Thème Wordpress enfant basé sur [Virtue](https://wordpress.org/themes/virtue)
 Principaux changements :
 
   * L'essentiel est dans ``style.css``
-  * Ajout de la framanav + ``framavirtue.js`` dans ``base-embed.php``
+  * Ajout de la framanav + ``framavirtue.js`` dans ``header.php``
   * Désactivation des Google Fonts dans ``themeoptions/options.php`` avec la ligne ``'disable_google_fonts_link' => true,`` 
   * Ajout d'une class ``form-control`` sur les champs du formulaire de commentaire et barre de menu placée en bas via ``framavirtue.js``
