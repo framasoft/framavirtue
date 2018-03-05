@@ -12,6 +12,11 @@ body {
     color: #333;
     background-color: #EEE;
 }
+
+body.admin-bar #framanav_container {
+    margin-top:32px
+}
+
 header #logo a.brand,
 .logofont,
 .kad_tagline,
